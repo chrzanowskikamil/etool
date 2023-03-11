@@ -13,6 +13,7 @@ import {
   FormHelperText,
   FormLabel,
   IconButton,
+  InputLeftElement,
   Icon,
   Input,
   Link,
@@ -25,9 +26,12 @@ import {
   StackDivider,
   useDisclosure,
   Flex,
+  InputGroup,
+  InputRightElement,
 } from '@chakra-ui/react';
 
 import { FcWorkflow } from 'react-icons/fc';
+import { FiEye, FiUserCheck, FiUnlock } from 'react-icons/fi';
 
 export const LoginButton = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -69,15 +73,27 @@ export const LoginButton = () => {
                 align='center'
                 direction='column'>
                 <FormLabel>Email address</FormLabel>
-                <Input
-                  type='email'
-                  mb='10'
-                />
+                <InputGroup>
+                  <InputLeftElement children={<FiUserCheck />} />
+                  <Input
+                    type='email'
+                    mb='10'
+                  />
+                </InputGroup>
                 <FormLabel>Password</FormLabel>
-                <Input
-                  type='password'
-                  mb='-1'
-                />
+                <InputGroup>
+                  <InputLeftElement children={<FiUnlock />} />
+                  <Input
+                    type='password'
+                    mb='-1'
+                  />
+                  <InputRightElement>
+                    <IconButton
+                      aria-label='Show password.'
+                      icon={<FiEye />}
+                      bg='transparent'></IconButton>
+                  </InputRightElement>
+                </InputGroup>
                 <FormHelperText
                   alignSelf='flex-end'
                   mb='10'>
