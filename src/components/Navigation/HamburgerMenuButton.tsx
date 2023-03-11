@@ -1,25 +1,18 @@
 import {
-  Box,
-  Button,
   Drawer,
   DrawerOverlay,
   DrawerContent,
   DrawerCloseButton,
-  DrawerHeader,
   DrawerBody,
   DrawerFooter,
   IconButton,
-  Input,
   Link,
-  Menu,
-  MenuButton,
-  MenuList,
-  MenuItem,
   VStack,
   StackDivider,
   useDisclosure,
   Flex,
 } from '@chakra-ui/react';
+
 import { AiOutlineMenu } from 'react-icons/ai';
 
 export const HamburgerMenuButton = () => {
@@ -27,6 +20,7 @@ export const HamburgerMenuButton = () => {
   return (
     <>
       <IconButton
+        display={{ base: 'flex', md: 'none' }}
         bg='transparent'
         icon={<AiOutlineMenu />}
         aria-label='Open menu.'

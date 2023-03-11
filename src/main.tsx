@@ -8,6 +8,7 @@ import { App } from './App';
 import { ContactPage } from './routes/ContactPage';
 import { ErrorPage } from './routes/ErrorPage';
 import { RegisterPage } from './routes/RegisterPage';
+import '@fontsource/montserrat';
 
 const router = createBrowserRouter([
   {
@@ -26,14 +27,14 @@ const router = createBrowserRouter([
 ]);
 
 const theme = extendTheme({
+  fonts: {
+    body: 'Montserrat',
+  },
   styles: {
     global: (props: StyleFunctionProps) => ({
       body: {
         bg: mode('#f5faf5', '#151515')(props),
         color: mode('#293798', '#adb7c9')(props),
-      },
-      fonts: {
-        body: `Montserrat Alternates`,
       },
     }),
   },

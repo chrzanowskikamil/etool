@@ -1,5 +1,4 @@
 import {
-  Box,
   Button,
   Drawer,
   DrawerOverlay,
@@ -16,14 +15,8 @@ import {
   InputLeftElement,
   Icon,
   Input,
-  Menu,
   Text,
   Link,
-  MenuButton,
-  MenuList,
-  MenuItem,
-  VStack,
-  StackDivider,
   useDisclosure,
   Flex,
   InputGroup,
@@ -40,7 +33,9 @@ export const LoginButton = () => {
   return (
     <>
       <Button
+        display={{ base: 'none', md: 'flex' }}
         aria-label='Open login menu.'
+        ml={2}
         onClick={onOpen}>
         Login
       </Button>
