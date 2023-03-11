@@ -16,9 +16,9 @@ import {
   InputLeftElement,
   Icon,
   Input,
-  Link,
   Menu,
   Text,
+  Link,
   MenuButton,
   MenuList,
   MenuItem,
@@ -29,6 +29,8 @@ import {
   InputGroup,
   InputRightElement,
 } from '@chakra-ui/react';
+
+import { Link as ReachLink } from 'react-router-dom';
 
 import { FcWorkflow } from 'react-icons/fc';
 import { FiEye, FiUserCheck, FiUnlock } from 'react-icons/fi';
@@ -49,6 +51,7 @@ export const LoginButton = () => {
         <DrawerOverlay />
         <DrawerContent>
           <DrawerCloseButton
+            tabIndex={7}
             fontSize='20'
             mt='6'
           />
@@ -76,6 +79,7 @@ export const LoginButton = () => {
                 <InputGroup>
                   <InputLeftElement children={<FiUserCheck />} />
                   <Input
+                    tabIndex={1}
                     type='email'
                     mb='10'
                   />
@@ -84,11 +88,13 @@ export const LoginButton = () => {
                 <InputGroup>
                   <InputLeftElement children={<FiUnlock />} />
                   <Input
+                    tabIndex={2}
                     type='password'
                     mb='-1'
                   />
                   <InputRightElement>
                     <IconButton
+                      tabIndex={4}
                       aria-label='Show password.'
                       icon={<FiEye />}
                       bg='transparent'></IconButton>
@@ -98,12 +104,15 @@ export const LoginButton = () => {
                   alignSelf='flex-end'
                   mb='10'>
                   <Link
-                    href='/forgotpassword'
+                    as={ReachLink}
+                    tabIndex={5}
+                    to='/forgotpassword'
                     color='#00FFFF'>
                     Forgot password?
                   </Link>
                 </FormHelperText>
                 <Button
+                  tabIndex={3}
                   onClick={onClose}
                   type='submit'>
                   Login
@@ -112,13 +121,14 @@ export const LoginButton = () => {
             </FormControl>
           </DrawerBody>
           <DrawerFooter mb='10'>
-            <Text>
+            <Text display='flex'>
               Don't have an account?
               <Link
-                href='/signup'
-                color='#00FFFF'
+                as={ReachLink}
+                tabIndex={6}
+                to='/register'
                 ml='1'>
-                Sign up
+                <Text color='#00FFFF'>Sign Up</Text>
               </Link>
             </Text>
           </DrawerFooter>

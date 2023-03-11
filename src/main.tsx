@@ -2,8 +2,28 @@ import * as React from 'react';
 import ReactDOM from 'react-dom/client';
 import { ChakraProvider, extendTheme } from '@chakra-ui/react';
 import { mode, StyleFunctionProps } from '@chakra-ui/theme-tools';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import { App } from './App';
+import { ContactPage } from './routes/ContactPage';
+import { ErrorPage } from './routes/ErrorPage';
+import { RegisterPage } from './routes/RegisterPage';
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <App />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: '/register',
+    element: <RegisterPage />,
+  },
+  {
+    path: '/contact',
+    element: <ContactPage />,
+  },
+]);
 
 const theme = extendTheme({
   styles: {
@@ -22,7 +42,7 @@ const theme = extendTheme({
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <ChakraProvider theme={theme}>
-      <App />
+      <RouterProvider router={router} />
     </ChakraProvider>
   </React.StrictMode>,
 );
