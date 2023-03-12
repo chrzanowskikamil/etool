@@ -22,12 +22,14 @@ export const Menu = () => {
 
   const links = ctas.map(cta => (
     <Link
+      key={cta.tabIndex}
       as={ReachLink}
       to={cta.to}
       tabIndex={cta.tabIndex}>
       {cta.title}
     </Link>
   ));
+
   return (
     <Flex
       display={{ base: 'none', md: 'flex' }}
